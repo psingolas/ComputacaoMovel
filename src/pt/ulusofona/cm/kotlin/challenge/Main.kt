@@ -1,5 +1,4 @@
-import pt.ulusofona.cm.kotlin.challenge.Pessoa
+package pt.ulusofona.cm.kotlin.challenge
 
-fun main() {
-
+class Main {
 }
