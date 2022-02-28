@@ -2,17 +2,24 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import java.text.SimpleDateFormat
 import java.util.*
- class Pessoa (var nome:String,  var dataDeNascimento:Date, var carta: Carta?=null,var posicao: Posicao =Posicao(0,0)) {
-     lateinit var veiculo: MutableList<Veiculo>
+
+class Pessoa(
+    var nome: String,
+    var dataDeNascimento: Date,
+    var carta: Carta? = null,
+    var posicao: Posicao = Posicao(0, 0)
+) {
+    lateinit var veiculo: MutableList<Veiculo>
 
 
-     fun temCarta(): Boolean{
-    if (carta== null){
-        return false
-    }else{
-        return true
+    fun temCarta(): Boolean {
+        if (carta == null) {
+            return false
+        } else {
+            return true
+        }
     }
-}
+
     override fun toString(): String {
 
         return "Pessoa | $nome | $dataDeNascimento | Posicao | x:${this.posicao.x} | y:${this.posicao.y}"
