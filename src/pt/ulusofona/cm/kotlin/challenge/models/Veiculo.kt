@@ -5,5 +5,10 @@ import java.util.*
 
 abstract class Veiculo(var identificador:String, var posicao: Posicao= Posicao(0,0), var dataDeAquisicao: Date=Date()) {
     abstract fun requerCarta(): Boolean
-    abstract fun moverPara(): Posicao
+     //fun moverPara(): Posicao{
+
+     //}
+     fun moverPara(x: Int, y: Int) {
+        //posicao.alterarPosicaoPara(x, y)
+    }
 }
