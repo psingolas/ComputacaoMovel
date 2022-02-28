@@ -8,7 +8,7 @@ abstract class Veiculo(var identificador:String, var posicao: Posicao= Posicao(0
      //fun moverPara(): Posicao{
 
      //}
-     fun moverPara(x: Int, y: Int) {
+     open fun moverPara(x: Int, y: Int) {
         //posicao.alterarPosicaoPara(x, y)
     }
 }
