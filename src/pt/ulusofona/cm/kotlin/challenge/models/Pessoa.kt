@@ -2,7 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import java.text.SimpleDateFormat
 import java.util.*
- class Pessoa (var nome:String,  var dataDeNascimento:Date, var carta: Carta?,var posicao: Posicao) {
+ class Pessoa (var nome:String,  var dataDeNascimento:Date, var carta: Carta?=null,var posicao: Posicao) {
      lateinit var veiculo: MutableList<Veiculo>
 
 
