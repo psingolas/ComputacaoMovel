@@ -2,8 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import java.text.SimpleDateFormat
 import java.util.*
-
-abstract class Pessoa (var nome:String, var veiculo: MutableList<Veiculo> = mutableListOf<Veiculo>(), var dataDeNascimento:Date, var carta: Carta?,var posicao: Posicao) {
+ class Pessoa (var nome:String, var veiculo: MutableList<Veiculo> = mutableListOf<Veiculo>(), var dataDeNascimento:Date, var carta: Carta?,var posicao: Posicao) {
 fun temCarta(): Boolean{
     if (carta== null){
         return false
