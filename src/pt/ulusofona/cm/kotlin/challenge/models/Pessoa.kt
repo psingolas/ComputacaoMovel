@@ -11,6 +11,9 @@ class Pessoa(
 ) {
     lateinit var veiculo: MutableList<Veiculo>
 
+//fun pesquisarVeiculo( identificador:String):Veiculo{
+
+//}
 
     fun temCarta(): Boolean {
         if (carta == null) {
