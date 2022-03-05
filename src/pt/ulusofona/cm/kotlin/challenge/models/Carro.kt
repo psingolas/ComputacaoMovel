@@ -1,17 +1,19 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
+
 class Carro(var identificador: String, var motor: Motor) {
 
-     fun ligar() {
+      fun ligar() {
         motor.ligar()
     }
-     fun desligar(){
+      fun desligar(){
         motor.desligar()
     }
      fun requerCarta():Boolean{
         return true
     }
-     fun estaLigado(){
+      fun estaLigado(){
         motor.estaLigado()
     }
 
