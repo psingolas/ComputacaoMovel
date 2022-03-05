@@ -1,6 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
-open class Carro(var identificador: String, var motor: Motor) {
+class Carro(var identificador: String, var motor: Motor) {
 
      fun ligar() {
         motor.ligar()
@@ -11,7 +11,7 @@ open class Carro(var identificador: String, var motor: Motor) {
      fun requerCarta():Boolean{
         return true
     }
-     open fun estaLigado(){
+     fun estaLigado(){
         motor.estaLigado()
     }
 
