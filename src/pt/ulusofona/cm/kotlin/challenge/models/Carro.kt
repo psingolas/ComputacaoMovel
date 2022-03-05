@@ -5,10 +5,10 @@ class Carro(var identificador: String, var motor: Motor) {
 
     override fun toString(): String {
         fun carroLigado() {
-            motor.carroLigado()
+            motor.ligar()
         }
         fun carroDesligado(){
-            motor.carroDesligado()
+            motor.desligar()
         }
         return "Carro | $identificador | data de aquisicao | Posicao | x:0 | y:0"
     }
