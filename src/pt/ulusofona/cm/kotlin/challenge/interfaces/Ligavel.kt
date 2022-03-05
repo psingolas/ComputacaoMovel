@@ -16,6 +16,6 @@ open class Ligavel {
      @Throws(VeiculoDesligadoException::class)
      open fun estaLigado( ):Boolean {
 
-         return motor.ligado
+         return motor.estaLigado()
      }
  }
