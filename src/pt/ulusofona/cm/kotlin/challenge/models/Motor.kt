@@ -5,21 +5,21 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoLigadoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
 class Motor(var cavalos: Int, var cilindrada: Int, var ligado: Boolean = false): Ligavel() {
-     override fun ligar() {
+      override fun ligar() {
         if (this.ligado == true) {
             throw VeiculoLigadoException("O veículo já se encontra ligado")
         } else {
             this.ligado = true
         }
     }
-    override fun desligar(){
+     override fun desligar(){
         if (this.ligado==false){
             throw VeiculoDesligadoException("O veículo já se encontra desligado")
         }else{
             this.ligado=false
         }
     }
-    override fun estaLigado():Boolean{
+     override fun estaLigado():Boolean{
         return this.ligado
     }
 
