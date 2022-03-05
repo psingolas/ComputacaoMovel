@@ -5,7 +5,7 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoLigadoException
 import pt.ulusofona.cm.kotlin.challenge.models.Motor
 
 open class Ligavel {
-     lateinit var motor:Motor
+     /*lateinit var motor:Motor
      @Throws(VeiculoLigadoException::class)
      open fun ligar() {
      }
@@ -17,5 +17,5 @@ open class Ligavel {
      open fun estaLigado( ):Boolean {
 
          return motor.estaLigado()
-     }
+     }*/
  }
