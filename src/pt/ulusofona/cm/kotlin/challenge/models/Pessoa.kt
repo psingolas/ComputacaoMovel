@@ -62,23 +62,26 @@ data class Pessoa(
 
         // Ver email do stor sobre comparar datas
         //https://www.geeksforgeeks.org/localdate-parse-method-in-java-with-examples/
-        val now = LocalDateTime.now()
-        val tenSecondsLater = now.plusSeconds(10)
-        val idade= ChronoUnit.YEARS.between(now, tenSecondsLater);
+
 
         /*val now = LocalDateTime.now()
+        val tenSecondsLater = now.plusSeconds(10)
+        val idade= ChronoUnit.YEARS.between(now, tenSecondsLater);*/
+
+        //https://www.javabrahman.com/java-8/java-8-how-to-calculate-difference-between-two-java-time-localdate-instances/
+        val now = LocalDateTime.now()
         val dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
         val dataForm = SimpleDateFormat("dd-MM-yyyy")
         val dataNascimento = dataForm.format(dataDeNascimento)
         val localDate = LocalDate.parse(dataNascimento, dateTimeFormatter)
-        val idade = ChronoUnit.YEARS.between(localDate, now)*/
+        val idade = ChronoUnit.YEARS.between(localDate, now)
 
 
         if (idade < 18) {
             throw MenorDeIdadeException("Idade Inferior")
-        } else {
+        } /*else {
             carta = Carta()
-        }
+        }*/
     }
 
     override fun moverPara(x: Int, y: Int) {
