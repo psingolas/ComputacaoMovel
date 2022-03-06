@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import java.text.SimpleDateFormat
@@ -51,8 +52,11 @@ class Pessoa(
 
 
 
-    fun tirarCarta():Boolean{
-        return true
+    fun tirarCarta(){
+        val idade=0
+        if (idade<18){
+            throw MenorDeIdadeException("Idade inferior")
+        }
     }
 
 
