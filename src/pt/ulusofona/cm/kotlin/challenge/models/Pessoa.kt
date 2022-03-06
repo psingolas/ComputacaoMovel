@@ -79,9 +79,9 @@ data class Pessoa(
 
         if (idade < 18) {
             throw MenorDeIdadeException("Idade Inferior")
-        } /*else {
+        } else {
             carta = Carta()
-        }*/
+        }
     }
 
     override fun moverPara(x: Int, y: Int) {
