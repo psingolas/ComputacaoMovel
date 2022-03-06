@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
@@ -17,7 +18,7 @@ data class Pessoa(
     var carta: Carta? = null,
     var posicao: Posicao = Posicao(0, 0)
 ): Movimentavel {
-    var veiculos: ArrayList<Veiculo> = ArrayList()
+    var veiculos: MutableList<Veiculo> = ArrayList()
 
     fun temCarta(): Boolean {
         return carta != null
@@ -26,7 +27,7 @@ data class Pessoa(
     fun comprarVeiculo(carro:Veiculo){
         veiculos.add(carro)
     }
-
+    @Throws(VeiculoNaoEncontradoException::class)
     fun pesquisarVeiculo(identificador: String):Veiculo{
         for (cars in veiculos){
             if (cars.identificador.equals(identificador)){
@@ -43,6 +44,7 @@ data class Pessoa(
             }
         }
     }
+    @Throws(AlterarPosicaoException::class, PessoaSemCartaException::class)
     fun moverVeiculoPara(identificador: String, x:Int,y:Int){
         for (cars in veiculos ){
             if (cars.identificador == identificador){
