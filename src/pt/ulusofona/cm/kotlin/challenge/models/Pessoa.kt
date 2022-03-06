@@ -39,6 +39,7 @@ data class Pessoa(
             if (cars.identificador == identificador){
                 comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
+                break
             }
         }
     }
