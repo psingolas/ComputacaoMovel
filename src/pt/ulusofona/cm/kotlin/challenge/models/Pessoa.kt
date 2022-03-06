@@ -47,7 +47,7 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
             }
 
         }
-        throw VeiculoNaoEncontradoException("O respetico veículo não existe")
+
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
