@@ -27,7 +27,7 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
     fun comprarVeiculo(carro: Veiculo) {
         veiculos.add(carro)
     }
-
+    @Throws(VeiculoNaoEncontradoException::class)
     fun pesquisarVeiculo(identificador: String): Veiculo {
         for (cars in veiculos) {
             if (cars.identificador == identificador) {
@@ -38,13 +38,16 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
     }
 
     fun venderVeiculo(identificador: String, comprador: Pessoa) {
-        for (veiculo in veiculos) {
-            if (veiculo.identificador.equals(identificador) ) {
-                comprador.comprarVeiculo(veiculo)
-                veiculos.remove(veiculo)
+        for (cars in veiculos) {
+            if (cars.identificador == identificador) {
+                comprador.comprarVeiculo(cars)
+                veiculos.remove(cars)
+
                 break
             }
+
         }
+        throw VeiculoNaoEncontradoException("O respetico veículo não existe")
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
