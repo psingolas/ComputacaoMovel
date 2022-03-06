@@ -67,8 +67,9 @@ class Pessoa(
 
 
     override fun toString(): String {
-
-        return "Pessoa | $nome | $dataDeNascimento | Posicao | x:${this.posicao.x} | y:${this.posicao.y}"
+        val dataForm= SimpleDateFormat("dd-MM-yyyy")
+        val dataNascimento=dataForm.format(dataDeNascimento)
+        return "Pessoa | $nome | $dataNascimento | Posicao | x:${this.posicao.x} | y:${this.posicao.y}"
     }
 
 }
