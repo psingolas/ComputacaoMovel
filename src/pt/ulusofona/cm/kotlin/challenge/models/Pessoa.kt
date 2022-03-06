@@ -23,7 +23,7 @@ class Pessoa(
     fun comprarVeiculo(carro:Veiculo){
         veiculos.add(carro)
     }
-
+    @Throws(VeiculoNaoEncontradoException::class)
     fun pesquisarVeiculo(identificador: String):Veiculo{
         for (cars in veiculos){
             if (cars.identificador.equals(identificador)){
