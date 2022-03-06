@@ -10,7 +10,7 @@ class Bicicleta(var identificador: String) {
     fun requerCarta(): Boolean {
         return false //para andar de bicicleta não é necessário carta
     }
-    @Throws(AlterarPosicaoException::class)
+    //@Throws(AlterarPosicaoException::class)
     fun moverPara(x: Int, y: Int) {
         pos.posicao.changePosition(x, y)
         //posicao.changePosition(x,y)//na class Veiculo tem a funcao para alterar a posicao
