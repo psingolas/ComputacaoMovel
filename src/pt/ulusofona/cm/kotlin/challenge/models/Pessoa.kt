@@ -50,8 +50,12 @@ class Pessoa(
             }
         }
     }
-
-
+    fun ligarCarro(carro:Carro){
+        carro.motor.ligar()
+    }
+    fun desligaCarro(carro:Carro){
+        carro.motor.desligar()
+    }
 
     fun tirarCarta(){
         val idade=0
