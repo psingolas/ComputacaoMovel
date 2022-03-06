@@ -21,9 +21,7 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
     fun comprarVeiculo(carro: Veiculo) {
         veiculos.add(carro)
     }
-    /*init {
-        veiculos=ArrayList()
-    }*/
+
     fun pesquisarVeiculo(identificador: String): Veiculo {
         for (cars in veiculos) {
             if (cars.identificador == identificador) {
@@ -53,6 +51,9 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
                 break
             }
         }
+    }
+    init {
+        veiculos=ArrayList()
     }
      override fun moverPara(x: Int, y: Int) {
          posicao.changePosition(x, y)
