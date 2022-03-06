@@ -13,13 +13,20 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = null, var posicao: Posicao = Posicao(0, 0), var veiculos:MutableList<Veiculo> = mutableListOf()) : Movimentavel {
+class Pessoa(
+    var nome: String,
+    var dataDeNascimento: Date,
+    var carta: Carta? = null,
+    var posicao: Posicao = Posicao(0, 0),
+    var veiculos: MutableList<Veiculo> = mutableListOf()
+) : Movimentavel {
     //var veiculos: ArrayList<Veiculo> = ArrayList()
     //var veiculos2: MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
 
     override fun moverPara(x: Int, y: Int) {
         posicao.changePosition(x, y)
     }
+
     fun temCarta(): Boolean {
         return carta != null
     }
@@ -27,6 +34,7 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
     fun comprarVeiculo(carro: Veiculo) {
         veiculos.add(carro)
     }
+
     @Throws(VeiculoNaoEncontradoException::class)
     fun pesquisarVeiculo(identificador: String): Veiculo {
         for (cars in veiculos) {
@@ -45,7 +53,7 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
 
                 break
             }
-
+            continue
         }
 
     }
@@ -61,7 +69,6 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
             }
         }
     }
-
 
 
     fun tirarCarta() {//
