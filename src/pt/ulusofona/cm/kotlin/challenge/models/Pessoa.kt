@@ -14,9 +14,7 @@ class Pessoa(
     var posicao: Posicao = Posicao(0, 0)
 ): Movimentavel {
     lateinit var veiculos: MutableList<Veiculo>
-    override fun moverPara(x: Int, y:Int){
-        posicao.changePosition(x,y)
-    }
+
 
     fun temCarta(): Boolean {
         return carta != null
@@ -45,9 +43,11 @@ class Pessoa(
     fun moverVeiculoPara(identificador: String, x:Int,y:Int){
         for (cars in veiculos){
             if (cars.identificador.equals(identificador) && !temCarta()){
-                throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
+                if (cars.requerCarta() && !temCarta()){
+                    throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
+                }
+                cars.moverPara(x, y)
             }
-            cars.moverPara(x, y)
         }
     }
 
@@ -61,7 +61,9 @@ class Pessoa(
             carta=Carta()
         }
     }
-
+    override fun moverPara(x: Int, y:Int){
+        posicao.changePosition(x,y)
+    }
 
 
     override fun toString(): String {
