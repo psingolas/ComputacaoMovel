@@ -29,7 +29,7 @@ var veiculos2:MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList
     }
 
     fun pesquisarVeiculo(identificador: String): Veiculo {
-        for (cars in veiculos) {
+        for (cars in veiculos2) {
             if (cars.identificador.equals(identificador)) {
                 return cars
             }
