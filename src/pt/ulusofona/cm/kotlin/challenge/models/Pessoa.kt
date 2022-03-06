@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -14,6 +15,15 @@ class Pessoa(
 
     fun comprarVeiculo(carro:Veiculo){
         veiculos.add(carro)
+    }
+
+    fun pesquisarVeiculo(identificador: String):Veiculo{
+        for (cars in veiculos){
+            if (cars.identificador.equals(identificador)){
+                return cars
+            }
+        }
+        throw VeiculoNaoEncontradoException("O respetico veículo não existe")
     }
 
 
