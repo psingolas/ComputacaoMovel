@@ -25,6 +25,14 @@ class Pessoa(
         }
         throw VeiculoNaoEncontradoException("O respetico veículo não existe")
     }
+    fun venderVeiculo(identificador: String, comprador: Pessoa){
+        for (cars in veiculos){
+            if (cars.identificador.equals(identificador)){
+                comprador.comprarVeiculo(cars)
+                veiculos.remove(cars)
+            }
+        }
+    }
 
 
 
