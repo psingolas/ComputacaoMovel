@@ -10,15 +10,16 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import java.util.*
+import kotlin.collections.ArrayList
 
 
-data class Pessoa(
+class Pessoa(
     var nome: String,
     var dataDeNascimento: Date,
     var carta: Carta? = null,
     var posicao: Posicao = Posicao(0, 0)
 ) : Movimentavel {
-    var veiculos: MutableList<Veiculo> = ArrayList()
+    var veiculos: ArrayList<Veiculo> = ArrayList()
     var veiculos2: MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
 
 
@@ -56,7 +57,9 @@ data class Pessoa(
             }
         }
     }
-
+     override fun moverPara(x: Int, y: Int) {
+         posicao.changePosition(x, y)
+     }
     fun temCarta(): Boolean {
         return carta != null
     }
@@ -86,11 +89,6 @@ data class Pessoa(
             carta = Carta()
         }
     }
-
-    override fun moverPara(x: Int, y: Int) {
-        posicao.changePosition(x, y)
-    }
-
 
     override fun toString(): String {
         val dataForm = SimpleDateFormat("dd-MM-yyyy")
