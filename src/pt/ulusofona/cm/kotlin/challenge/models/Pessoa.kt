@@ -19,7 +19,7 @@ data class Pessoa(
     var posicao: Posicao = Posicao(0, 0)
 ) : Movimentavel {
     var veiculos: MutableList<Veiculo> = ArrayList()
-var veiculos2:MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
+    var veiculos2: MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
 
 
     fun comprarVeiculo(carro: Veiculo) {
@@ -28,7 +28,7 @@ var veiculos2:MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList
 
     fun pesquisarVeiculo(identificador: String): Veiculo {
         for (cars in veiculos) {
-            if (cars.identificador.equals(identificador)) {
+            if (cars.identificador == identificador) {
                 return cars
             }
         }
@@ -40,7 +40,7 @@ var veiculos2:MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList
             if (cars.identificador == identificador) {
                 comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
-
+                break
             }
         }
     }
@@ -52,9 +52,11 @@ var veiculos2:MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList
                     throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
                 }
                 cars.moverPara(x, y)
+                break
             }
         }
     }
+
     fun temCarta(): Boolean {
         return carta != null
     }
