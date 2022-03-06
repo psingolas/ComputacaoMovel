@@ -18,7 +18,7 @@ class Bicicleta(var identificador: String) {
 
     override fun toString(): String {
         val dataForm=SimpleDateFormat()
-        val data=dataForm.format(pos.data)
+        val data=dataForm.format(pos.dataDeAquisicao)
         return "Bicicleta | $identificador | $data| Posicao | x:${this.pos.posicao.x} | y:${this.pos.posicao.y}"
     }
 
