@@ -43,6 +43,8 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
                 veiculos.remove(cars)
                 comprador.comprarVeiculo(cars)
 
+                    veiculos = java.util.ArrayList()
+
                 break
             }
 
