@@ -50,6 +50,7 @@ data class Pessoa(
                     throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
                 }
                 cars.moverPara(x, y)
+                break
             }
         }
     }
