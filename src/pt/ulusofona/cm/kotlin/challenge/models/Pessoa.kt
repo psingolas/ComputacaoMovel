@@ -5,8 +5,10 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 class Pessoa(
     var nome: String,
@@ -50,17 +52,13 @@ class Pessoa(
             }
         }
     }
-    fun ligarCarro(carro:Carro){
-        carro.motor.ligar()
-    }
-    fun desligaCarro(carro:Carro){
-        carro.motor.desligar()
-    }
 
-    fun tirarCarta(){
-        val idade=0
+    fun tirarCarta(){//Ver email do stor sobre comparar datas
+        val now = LocalDateTime.now()
+        val tenSecondsLater = now.plusSeconds(10)
+        val idade= ChronoUnit.SECONDS.between(now, tenSecondsLater);
         if (idade<18){
-            throw MenorDeIdadeException("")
+            throw MenorDeIdadeException("Idade Inferior")
         }else{
             carta=Carta()
         }
