@@ -36,13 +36,10 @@ class Pessoa(
     }
     fun moverVeiculoPara(identificador: String, x:Int,y:Int){
         for (cars in veiculos){
-            if (cars.identificador.equals(identificador)){
-                if (cars.requerCarta()&&!temCarta()){
-                    throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
-                }
-                cars.moverPara(x, y)
+            if (cars.identificador.equals(identificador) && !temCarta()){
+                throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
             }
-
+            cars.moverPara(x, y)
         }
     }
 
