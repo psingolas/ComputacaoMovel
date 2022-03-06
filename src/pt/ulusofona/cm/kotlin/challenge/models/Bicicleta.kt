@@ -12,10 +12,12 @@ open class Bicicleta(var identificador: String) {
     }
 
     override fun equals(other: Any?): Boolean {
+
         return super.equals(other)
     }
 
     override fun hashCode(): Int {
+        pos.posicao.changePosition(0,0)
         return super.hashCode()
     }
 
