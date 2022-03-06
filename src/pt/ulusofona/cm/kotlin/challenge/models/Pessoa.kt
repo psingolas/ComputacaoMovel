@@ -19,7 +19,7 @@ data class Pessoa(
     var posicao: Posicao = Posicao(0, 0)
 ) : Movimentavel {
     var veiculos: MutableList<Veiculo> = ArrayList()
-
+var veiculos2:MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
     fun temCarta(): Boolean {
         return carta != null
     }
@@ -38,10 +38,11 @@ data class Pessoa(
     }
 
     fun venderVeiculo(identificador: String, comprador: Pessoa) {
-        for (cars in veiculos) {
+        for (cars in veiculos2) {
             if (cars.identificador == identificador) {
                 comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
+
             }
         }
     }
