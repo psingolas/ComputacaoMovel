@@ -42,6 +42,7 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
             if (cars.identificador == identificador) {
                 comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
+                break
             }
         }
 
