@@ -25,9 +25,10 @@ data class Pessoa(
     }
 
     fun comprarVeiculo(carro:Veiculo){
+        carro.data()
         veiculos.add(carro)
     }
-    @Throws(VeiculoNaoEncontradoException::class)
+
     fun pesquisarVeiculo(identificador: String):Veiculo{
         for (cars in veiculos){
             if (cars.identificador.equals(identificador)){
@@ -44,7 +45,7 @@ data class Pessoa(
             }
         }
     }
-    @Throws(AlterarPosicaoException::class, PessoaSemCartaException::class)
+
     fun moverVeiculoPara(identificador: String, x:Int,y:Int){
         for (cars in veiculos ){
             if (cars.identificador == identificador){
