@@ -9,7 +9,27 @@ class Pessoa(
     var carta: Carta? = null,
     var posicao: Posicao = Posicao(0, 0)
 ) {
-    lateinit var veiculo: MutableList<Veiculo>
+    lateinit var veiculos: MutableList<Veiculo>
+
+
+    fun comprarVeiculo(carro:Veiculo){
+        veiculos.add(carro)
+    }
+
+
+
+
+
+
+
+
+
+
+    fun tirarCarta():Boolean{
+        return true
+    }
+
+
 
 //fun pesquisarVeiculo( identificador:String):Veiculo{
 
