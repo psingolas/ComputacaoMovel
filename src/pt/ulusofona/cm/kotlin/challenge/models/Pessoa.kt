@@ -42,7 +42,7 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
             if (cars.identificador == identificador) {
                 comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
-
+                break
             }
 
         }
@@ -55,7 +55,7 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
                     throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
                 }
                 cars.moverPara(x, y)
-                break
+
             }
         }
     }
