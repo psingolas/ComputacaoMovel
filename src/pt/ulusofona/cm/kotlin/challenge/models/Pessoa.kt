@@ -56,7 +56,7 @@ class Pessoa(
     fun tirarCarta(){
         val idade=0
         if (idade<18){
-            throw MenorDeIdadeException("Idade inferior")
+            throw MenorDeIdadeException("")
         }else{
             carta=Carta()
         }
