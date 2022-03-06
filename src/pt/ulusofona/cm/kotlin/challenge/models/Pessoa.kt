@@ -35,7 +35,6 @@ class Pessoa(
         veiculos.add(carro)
     }
 
-    @Throws(VeiculoNaoEncontradoException::class)
     fun pesquisarVeiculo(identificador: String): Veiculo {
         for (cars in veiculos) {
             if (cars.identificador == identificador) {
@@ -53,7 +52,6 @@ class Pessoa(
 
                 break
             }
-            continue
         }
 
     }
