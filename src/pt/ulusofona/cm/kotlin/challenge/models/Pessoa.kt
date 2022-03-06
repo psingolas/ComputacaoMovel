@@ -12,7 +12,13 @@ class Pessoa(
     var posicao: Posicao = Posicao(0, 0)
 ) {
     lateinit var veiculos: MutableList<Veiculo>
+    fun moverPara(x: Int, y:Int){
+        posicao.changePosition(x,y)
+    }
 
+    fun temCarta(): Boolean {
+        return carta != null
+    }
 
     fun comprarVeiculo(carro:Veiculo){
         veiculos.add(carro)
@@ -45,30 +51,11 @@ class Pessoa(
 
 
 
-
-
-
-
-
-
-
     fun tirarCarta():Boolean{
         return true
     }
 
 
-
-//fun pesquisarVeiculo( identificador:String):Veiculo{
-
-//}
-
-    fun temCarta(): Boolean {
-        if (carta == null) {
-            return false
-        } else {
-            return true
-        }
-    }
 
     override fun toString(): String {
 
