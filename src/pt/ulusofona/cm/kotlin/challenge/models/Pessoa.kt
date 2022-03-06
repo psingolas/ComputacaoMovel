@@ -6,6 +6,7 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Pessoa(
     var nome: String,
@@ -13,8 +14,7 @@ class Pessoa(
     var carta: Carta? = null,
     var posicao: Posicao = Posicao(0, 0)
 ): Movimentavel {
-    lateinit var veiculos: MutableList<Veiculo>
-
+    var veiculos: MutableList<Veiculo> = ArrayList()
 
     fun temCarta(): Boolean {
         return carta != null
