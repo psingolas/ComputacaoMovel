@@ -2,7 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 
-open class Posicao(var x: Int, var y: Int) {
+data class Posicao(var x: Int, var y: Int) {
 
     fun changePosition(novoPosX: Int, novoPosY: Int) {
 
