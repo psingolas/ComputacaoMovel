@@ -4,7 +4,7 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import java.text.SimpleDateFormat
 
 open class Bicicleta(var identificador: String) {
-     lateinit var pos: Veiculo
+      lateinit var pos: Veiculo
 
     //para haver um override é necessário que a outra class seja open
     fun requerCarta(): Boolean {
