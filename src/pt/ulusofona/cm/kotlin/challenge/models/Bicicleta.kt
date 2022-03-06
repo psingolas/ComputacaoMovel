@@ -10,8 +10,17 @@ open class Bicicleta(var identificador: String) {
     fun requerCarta(): Boolean {
         return false //para andar de bicicleta não é necessário carta
     }
-    //@Throws(AlterarPosicaoException::class)
-    open fun moverPara(x: Int, y: Int) {
+
+    override fun equals(other: Any?): Boolean {
+        return super.equals(other)
+    }
+
+    override fun hashCode(): Int {
+        return super.hashCode()
+    }
+
+
+     fun moverPara(x: Int, y: Int) {
         //pos.posicao.changePosition(x, y)
         pos.posicao.changePosition(x,y)//na class Veiculo tem a funcao para alterar a posicao
     }
