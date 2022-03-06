@@ -38,6 +38,7 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
                 veiculos.remove(cars)
                 break
             }
+            continue
         }
     }
 
@@ -50,11 +51,10 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
                 cars.moverPara(x, y)
                 break
             }
+            continue
         }
     }
-    init {
-        veiculos=ArrayList()
-    }
+
      override fun moverPara(x: Int, y: Int) {
          posicao.changePosition(x, y)
      }
