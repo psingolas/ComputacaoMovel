@@ -33,6 +33,13 @@ class Pessoa(
             }
         }
     }
+    fun moverVeiculoPara(identificador: String, x:Int,y:Int){
+        for (cars in veiculos){
+            if (cars.identificador.equals(identificador)){
+                cars.moverPara(x, y)
+            }
+        }
+    }
 
 
 
