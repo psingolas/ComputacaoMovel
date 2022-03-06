@@ -11,10 +11,9 @@ open class Bicicleta(override var identificador: String):Veiculo(identificador) 
         return false //para andar de bicicleta não é necessário carta
     }
 
-
-     fun moverPara(x: Int, y: Int) {
+    override fun moverPara(x: Int, y: Int) {
         //pos.posicao.changePosition(x, y)
-        return posicao.changePosition(x,y)//na class Veiculo tem a funcao para alterar a posicao
+         posicao.changePosition(x,y)//na class Veiculo tem a funcao para alterar a posicao
     }
 
     override fun toString(): String {
