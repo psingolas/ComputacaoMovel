@@ -2,15 +2,15 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
-class Carro(var identificador: String, var motor: Motor) {
+class Carro(override var identificador: String, var motor: Motor):Veiculo(identificador) {
 
-      fun ligar() {
+    fun ligar() {
         motor.ligar()
     }
       fun desligar(){
         motor.desligar()
     }
-     fun requerCarta():Boolean{
+     override fun requerCarta():Boolean{
         return true
     }
       fun estaLigado(){
@@ -18,7 +18,7 @@ class Carro(var identificador: String, var motor: Motor) {
     }
 
     override fun toString(): String {
-        return "Carro | $identificador | data de aquisicao | Posicao | x:0 | y:0"
+        return "Carro | $identificador | $dataDeAquisicao | Posicao | x:${this.posicao.x} | y:${this.posicao.y}"
     }
 
 
