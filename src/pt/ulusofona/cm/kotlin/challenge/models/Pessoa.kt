@@ -38,16 +38,12 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
     }
 
     fun venderVeiculo(identificador: String, comprador: Pessoa) {
-        for (cars in veiculos) {
-            if (cars.identificador == identificador) {
-                veiculos.remove(cars)
-                comprador.comprarVeiculo(cars)
-
-                    veiculos = java.util.ArrayList()
-
+        for (veiculo in veiculos) {
+            if (veiculo.identificador.equals(identificador) ) {
+                comprador.comprarVeiculo(veiculo)
+                veiculos.remove(veiculo)
                 break
             }
-
         }
     }
 
