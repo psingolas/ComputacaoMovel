@@ -17,6 +17,12 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
     //var veiculos: ArrayList<Veiculo> = ArrayList()
     //var veiculos2: MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
 
+    override fun moverPara(x: Int, y: Int) {
+        posicao.changePosition(x, y)
+    }
+    fun temCarta(): Boolean {
+        return carta != null
+    }
 
     fun comprarVeiculo(carro: Veiculo) {
         veiculos.add(carro)
@@ -49,18 +55,12 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
                     throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
                 }
                 cars.moverPara(x, y)
-
+                break
             }
-
         }
     }
 
-     override fun moverPara(x: Int, y: Int) {
-         posicao.changePosition(x, y)
-     }
-    fun temCarta(): Boolean {
-        return carta != null
-    }
+
 
     fun tirarCarta() {//
 
