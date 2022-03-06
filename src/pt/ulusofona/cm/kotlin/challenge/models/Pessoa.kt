@@ -40,8 +40,9 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
     fun venderVeiculo(identificador: String, comprador: Pessoa) {
         for (cars in veiculos) {
             if (cars.identificador == identificador) {
-                comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
+                comprador.comprarVeiculo(cars)
+
                 break
             }
 
