@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat
 
  class Bicicleta( identificador: String):Veiculo(identificador) {
       //lateinit var pos:Veiculo
-
     //para haver um override é necessário que a outra class seja open
     override fun requerCarta(): Boolean {
         return false //para andar de bicicleta não é necessário carta

@@ -45,7 +45,6 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
                 break
             }
         }
-
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {

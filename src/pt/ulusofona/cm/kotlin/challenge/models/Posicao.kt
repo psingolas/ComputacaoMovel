@@ -4,7 +4,7 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 
 data class Posicao(var x: Int, var y: Int) {
     //dá-me erro no DP. Dá os mesmo valores mas não passa no DP
-    //Res Meter "data class"
+    //Res--> Meter "data class"
     //https://play.kotlinlang.org/byExample/03_special_classes/01_Data%20classes
 
     fun changePosition(novoPosX: Int, novoPosY: Int) {
