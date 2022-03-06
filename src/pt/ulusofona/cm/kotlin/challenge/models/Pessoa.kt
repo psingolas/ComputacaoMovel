@@ -19,9 +19,11 @@ class Pessoa(
     var carta: Carta? = null,
     var posicao: Posicao = Posicao(0, 0)
 ) : Movimentavel {
-    var veiculos: ArrayList<Veiculo> = ArrayList()
+    var veiculos: MutableList<Veiculo> = ArrayList()
     var veiculos2: MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
-
+init {
+    veiculos=ArrayList()
+}
 
     fun comprarVeiculo(carro: Veiculo) {
         veiculos.add(carro)
