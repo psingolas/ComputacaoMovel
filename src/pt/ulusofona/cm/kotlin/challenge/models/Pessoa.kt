@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -35,9 +36,10 @@ class Pessoa(
     }
     fun moverVeiculoPara(identificador: String, x:Int,y:Int){
         for (cars in veiculos){
-            if (cars.identificador.equals(identificador)){
-                cars.moverPara(x, y)
+            if (cars.identificador.equals(identificador) && !temCarta()){
+                throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
             }
+            cars.moverPara(x, y)
         }
     }
 
