@@ -10,18 +10,10 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import java.util.*
-import kotlin.collections.ArrayList
 
-
-class Pessoa(
-    var nome: String,
-    var dataDeNascimento: Date,
-    var carta: Carta? = null,
-    var posicao: Posicao = Posicao(0, 0),
-    var veiculos: MutableList<Veiculo> = mutableListOf()
-) : Movimentavel {
-    //var veiculos: ArrayList<Veiculo> = ArrayList()
-    //var veiculos2: MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
+class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = null, var posicao: Posicao = Posicao(0, 0), var veiculos: MutableList<Veiculo> = mutableListOf()) : Movimentavel {
+    val dataForm = SimpleDateFormat("dd-MM-yyyy")
+    val dataNascimento = dataForm.format(dataDeNascimento)
 
     override fun moverPara(x: Int, y: Int) {
         posicao.changePosition(x, y)
@@ -50,8 +42,6 @@ class Pessoa(
             if (cars.identificador == identificador) {
                 comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
-
-                break
             }
         }
 
@@ -69,12 +59,10 @@ class Pessoa(
         }
     }
 
-
     fun tirarCarta() {//
 
         // Ver email do stor sobre comparar datas
         //https://www.geeksforgeeks.org/localdate-parse-method-in-java-with-examples/
-
 
         /*val now = LocalDateTime.now()
         val tenSecondsLater = now.plusSeconds(10)
@@ -87,18 +75,13 @@ class Pessoa(
         val dataNascimento = dataForm.format(dataDeNascimento)
         val localDate = LocalDate.parse(dataNascimento, dateTimeFormatter)
         val idade = ChronoUnit.YEARS.between(localDate, now)
-
-
         if (idade < 18) {
             throw MenorDeIdadeException("Idade Inferior")
         } else {
             carta = Carta()
         }
     }
-
     override fun toString(): String {
-        val dataForm = SimpleDateFormat("dd-MM-yyyy")
-        val dataNascimento = dataForm.format(dataDeNascimento)
         return "Pessoa | $nome | $dataNascimento | Posicao | x:${this.posicao.x} | y:${this.posicao.y}"
     }
 

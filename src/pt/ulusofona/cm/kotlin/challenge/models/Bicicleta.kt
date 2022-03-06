@@ -1,6 +1,5 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
-import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import java.text.SimpleDateFormat
 
  class Bicicleta( identificador: String):Veiculo(identificador) {
@@ -21,5 +20,4 @@ import java.text.SimpleDateFormat
         val dataDeAquisicao=dataForm.format(dataDeAquisicao)
         return "Bicicleta | $identificador | $dataDeAquisicao | Posicao | x:${this.posicao.x} | y:${this.posicao.y}"
     }
-
 }
