@@ -36,9 +36,10 @@ data class Pessoa(
     }
     fun venderVeiculo(identificador: String, comprador: Pessoa){
         for (cars in veiculos){
-            if (cars.identificador.equals(identificador)){
+            if (cars.identificador == identificador){
                 comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
+                break
             }
         }
     }
