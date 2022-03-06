@@ -29,7 +29,7 @@ var veiculos2:MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList
     }
 
     fun pesquisarVeiculo(identificador: String): Veiculo {
-        for (cars in veiculos2) {
+        for (cars in veiculos) {
             if (cars.identificador.equals(identificador)) {
                 return cars
             }
@@ -41,7 +41,7 @@ var veiculos2:MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList
         for (cars in veiculos2) {
             if (cars.identificador == identificador) {
                 comprador.comprarVeiculo(cars)
-                veiculos.remove(cars)
+                veiculos2.remove(cars)
 
             }
         }
@@ -58,7 +58,7 @@ var veiculos2:MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList
         }
     }
 
-    @Throws(MenorDeIdadeException::class)
+
     fun tirarCarta() {//
 
         // Ver email do stor sobre comparar datas
