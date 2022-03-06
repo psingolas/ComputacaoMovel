@@ -9,7 +9,5 @@ abstract class Veiculo(open var identificador:String, var posicao: Posicao= Posi
      open fun moverPara(x: Int, y: Int) {
         //posicao.alterarPosicaoPara(x, y)
     }
-    fun data() {
-        this.dataDeAquisicao = Date()
-    }
+
 }
