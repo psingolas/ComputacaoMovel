@@ -1,10 +1,25 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
+import java.text.SimpleDateFormat
+
 class Bicicleta(var identificador: String) {
+    lateinit var pos: Veiculo
+
+    //para haver um override é necessário que a outra class seja open
+    fun requerCarta(): Boolean {
+        return false //para andar de bicicleta não é necessário carta
+    }
+    @Throws(AlterarPosicaoException::class)
+    fun moverPara(x: Int, y: Int) {
+        pos.posicao.changePosition(x, y)
+        //posicao.changePosition(x,y)//na class Veiculo tem a funcao para alterar a posicao
+    }
 
     override fun toString(): String {
-
-        return "Bicicleta | $identificador | data de aquisicao | Posicao | x:0 | y:0"
+        val dataForm=SimpleDateFormat()
+        val data=dataForm.format(pos.data)
+        return "Bicicleta | $identificador | $data| Posicao | x:${this.pos.posicao.x} | y:${this.pos.posicao.y}"
     }
 
 }
