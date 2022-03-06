@@ -21,14 +21,14 @@ class Pessoa(
 ) : Movimentavel {
     var veiculos: MutableList<Veiculo> = ArrayList()
     var veiculos2: MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
-init {
-    veiculos=ArrayList()
-}
+
 
     fun comprarVeiculo(carro: Veiculo) {
         veiculos.add(carro)
     }
-
+    init {
+        veiculos=ArrayList()
+    }
     fun pesquisarVeiculo(identificador: String): Veiculo {
         for (cars in veiculos) {
             if (cars.identificador == identificador) {
