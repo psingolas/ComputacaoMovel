@@ -13,13 +13,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class Pessoa(
-    var nome: String,
-    var dataDeNascimento: Date,
-    var carta: Carta? = null,
-    var posicao: Posicao = Posicao(0, 0)
-) : Movimentavel {
-    var veiculos: MutableList<Veiculo> = ArrayList()
+class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = null, var posicao: Posicao = Posicao(0, 0)) : Movimentavel {
+    var veiculos: ArrayList<Veiculo> = ArrayList()
     var veiculos2: MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
 
 
