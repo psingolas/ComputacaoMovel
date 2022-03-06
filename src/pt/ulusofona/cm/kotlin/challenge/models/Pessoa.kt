@@ -10,7 +10,7 @@ import java.time.temporal.ChronoUnit
 import java.util.*
 
 
-class Pessoa(
+data class Pessoa(
     var nome: String,
     var dataDeNascimento: Date,
     var carta: Carta? = null,
