@@ -24,6 +24,6 @@ class Motor(var cavalos: Int, var cilindrada: Int, var ligado: Boolean = false):
     }
 
     override fun toString(): String {
-        return "Motor | ${this.cavalos} | ${this.cilindrada}"
+        return "Motor | $cavalos | $cilindrada"
     }
 }
