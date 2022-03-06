@@ -2,19 +2,19 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
-class Carro(override var identificador: String, var motor: Motor):Veiculo(identificador) {
+class Carro(override var identificador: String,  var motor: Motor):Veiculo(identificador),Ligavel {
 
-    fun ligar() {
+    override fun ligar() {
         motor.ligar()
     }
-      fun desligar(){
+      override fun desligar(){
         motor.desligar()
     }
      override fun requerCarta():Boolean{
         return true
     }
-      fun estaLigado(){
-        motor.estaLigado()
+      override fun estaLigado(): Boolean {
+        return motor.estaLigado()
     }
 
     override fun toString(): String {
