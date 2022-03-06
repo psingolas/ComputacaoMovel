@@ -21,9 +21,9 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
     fun comprarVeiculo(carro: Veiculo) {
         veiculos.add(carro)
     }
-    init {
+    /*init {
         veiculos=ArrayList()
-    }
+    }*/
     fun pesquisarVeiculo(identificador: String): Veiculo {
         for (cars in veiculos) {
             if (cars.identificador == identificador) {
