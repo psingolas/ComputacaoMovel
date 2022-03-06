@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 data class Pessoa(
@@ -16,7 +17,7 @@ data class Pessoa(
     var carta: Carta? = null,
     var posicao: Posicao = Posicao(0, 0)
 ): Movimentavel {
-    var veiculos: MutableList<Veiculo> = ArrayList()
+    var veiculos: ArrayList<Veiculo> = ArrayList()
 
     fun temCarta(): Boolean {
         return carta != null
@@ -39,12 +40,11 @@ data class Pessoa(
             if (cars.identificador == identificador){
                 comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
-                break
             }
         }
     }
     fun moverVeiculoPara(identificador: String, x:Int,y:Int){
-        for (cars in veiculos){
+        for (cars in veiculos ){
             if (cars.identificador == identificador){
                 if (cars.requerCarta() && !temCarta()){
                     throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
