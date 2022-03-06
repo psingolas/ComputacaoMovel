@@ -15,7 +15,7 @@ import kotlin.collections.ArrayList
 
 class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = null, var posicao: Posicao = Posicao(0, 0), var veiculos:MutableList<Veiculo> = mutableListOf()) : Movimentavel {
     //var veiculos: ArrayList<Veiculo> = ArrayList()
-    var veiculos2: MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
+    //var veiculos2: MutableList<Veiculo> = ArrayList<Veiculo>().clone() as MutableList<Veiculo>
 
 
     fun comprarVeiculo(carro: Veiculo) {
@@ -36,9 +36,9 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
             if (cars.identificador == identificador) {
                 comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
-                break
+
             }
-            continue
+
         }
     }
 
@@ -49,9 +49,9 @@ class Pessoa(var nome: String, var dataDeNascimento: Date, var carta: Carta? = n
                     throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
                 }
                 cars.moverPara(x, y)
-                break
+
             }
-            continue
+
         }
     }
 
