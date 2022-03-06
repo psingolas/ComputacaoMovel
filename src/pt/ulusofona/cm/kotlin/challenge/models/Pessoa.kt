@@ -32,6 +32,7 @@ class Pessoa(
     }
 
     fun comprarVeiculo(carro: Veiculo) {
+        carro.data()
         veiculos.add(carro)
     }
 
