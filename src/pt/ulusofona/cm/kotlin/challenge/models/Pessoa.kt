@@ -1,6 +1,5 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
-import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
@@ -11,7 +10,6 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 data class Pessoa(
@@ -19,68 +17,78 @@ data class Pessoa(
     var dataDeNascimento: Date,
     var carta: Carta? = null,
     var posicao: Posicao = Posicao(0, 0)
-): Movimentavel {
+) : Movimentavel {
     var veiculos: MutableList<Veiculo> = ArrayList()
 
     fun temCarta(): Boolean {
         return carta != null
     }
 
-    fun comprarVeiculo(carro:Veiculo){
+    fun comprarVeiculo(carro: Veiculo) {
         veiculos.add(carro)
     }
 
-    fun pesquisarVeiculo(identificador: String):Veiculo{
-        for (cars in veiculos){
-            if (cars.identificador.equals(identificador)){
+    fun pesquisarVeiculo(identificador: String): Veiculo {
+        for (cars in veiculos) {
+            if (cars.identificador.equals(identificador)) {
                 return cars
             }
         }
         throw VeiculoNaoEncontradoException("O respetico veículo não existe")
     }
-    fun venderVeiculo(identificador: String, comprador: Pessoa){
-        for (cars in veiculos){
-            if (cars.identificador == identificador){
+
+    fun venderVeiculo(identificador: String, comprador: Pessoa) {
+        for (cars in veiculos) {
+            if (cars.identificador == identificador) {
                 comprador.comprarVeiculo(cars)
                 veiculos.remove(cars)
             }
         }
     }
 
-    fun moverVeiculoPara(identificador: String, x:Int,y:Int){
-        for (cars in veiculos ){
-            if (cars.identificador == identificador){
-                if (cars.requerCarta() && !temCarta()){
+    fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
+        for (cars in veiculos) {
+            if (cars.identificador == identificador) {
+                if (cars.requerCarta() && !temCarta()) {
                     throw PessoaSemCartaException("${this.nome} não tem carta para conduzir o veículo indicado")
                 }
                 cars.moverPara(x, y)
             }
         }
     }
+
     @Throws(MenorDeIdadeException::class)
-    fun tirarCarta(){//Ver email do stor sobre comparar datas
+    fun tirarCarta() {//
+
+        // Ver email do stor sobre comparar datas
+        //https://www.geeksforgeeks.org/localdate-parse-method-in-java-with-examples/
         /*val now = LocalDateTime.now()
         val tenSecondsLater = now.plusSeconds(10)
         val idade= ChronoUnit.SECONDS.between(now, tenSecondsLater);*/
-        val dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-        val formatter = SimpleDateFormat("dd/MM/yyyy")
-        val dateString =formatter.format(dataDeNascimento)
-        val localDate = LocalDate.parse(dateString, dateTimeFormatter)
-        val idade = ChronoUnit.YEARS.between(localDate, LocalDate.now())
-        if (idade<18){
+
+        val now = LocalDateTime.now()
+        val dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        val dataForm = SimpleDateFormat("dd-MM-yyyy")
+        val dataNascimento = dataForm.format(dataDeNascimento)
+        val localDate = LocalDate.parse(dataNascimento, dateTimeFormatter)
+        val idade = ChronoUnit.YEARS.between(localDate, now)
+
+
+        if (idade < 18) {
             throw MenorDeIdadeException("Idade Inferior")
-        }else{
-            carta=Carta()
+        } else {
+            carta = Carta()
         }
     }
-    override fun moverPara(x: Int, y:Int){
-        posicao.changePosition(x,y)
+
+    override fun moverPara(x: Int, y: Int) {
+        posicao.changePosition(x, y)
     }
 
 
     override fun toString(): String {
-        val dataForm= SimpleDateFormat("dd-MM-yyyy")
-        val dataNascimento=dataForm.format(dataDeNascimento)
+        val dataForm = SimpleDateFormat("dd-MM-yyyy")
+        val dataNascimento = dataForm.format(dataDeNascimento)
         return "Pessoa | $nome | $dataNascimento | Posicao | x:${this.posicao.x} | y:${this.posicao.y}"
     }
 
