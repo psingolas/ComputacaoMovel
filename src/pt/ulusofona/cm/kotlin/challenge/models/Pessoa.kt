@@ -57,6 +57,8 @@ class Pessoa(
         val idade=0
         if (idade<18){
             throw MenorDeIdadeException("Idade inferior")
+        }else{
+            carta=Carta()
         }
     }
 
